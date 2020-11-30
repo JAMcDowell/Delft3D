@@ -1,0 +1,79 @@
+[WaveFileInformation]
+   FileVersion          = 02.00                        
+[General]
+   ProjectName          = BayofFundy                
+   Description          = Run4 Grid500m              
+   FlowFile             = bf4_500_coupled.mdf                      
+   OnlyInputVerify      = false                        
+   SimMode              = stationary                   
+   DirConvention        = nautical                     
+   ReferenceDate        = 2017-12-01
+   FlowBedLevel         = 1                            
+   FlowWaterLevel       = 1                            
+   FlowVelocity         = 1                            
+   FlowWind             = 1
+[Constants]
+   WaterLevelCorrection = 0.00           
+   Gravity              = 9.81             
+   WaterDensity         = 1025              
+   NorthDir             = 90              
+   MinimumDepth         = 0.05              
+[Processes]
+   GenModePhys          = 3                            
+   Breaking             = true                         
+   BreakAlpha           = 1             
+   BreakGamma           = 0.73             
+   Triads               = true                        
+   TriadsAlpha          = 0.1              
+   TriadsBeta           = 2.2              
+   BedFriction          = jonswap                      
+   BedFricCoef          = 0.067             
+   Diffraction          = true                        
+   DiffracCoef          = 0.2              
+   DiffracSteps         = 5                            
+   DiffracProp          = true                         
+   WindGrowth           = true                         
+   WhiteCapping         = Komen                        
+   Quadruplets          = true                         
+   Refraction           = true                         
+   FreqShift            = true                         
+   WaveForces           = dissipation 3d              
+[Numerics]
+   DirSpaceCDD          = 0.5              
+   FreqSpaceCSS         = 0.5              
+   RChHsTm01            = 0.02              
+   RChMeanHs            = 0.02             
+   RChMeanTm01          = 0.02              
+   PercWet              = 98             
+   MaxIter              = 25                           
+[Output]
+   TestOutputLevel      = 0                            
+   TraceCalls           = false                        
+   UseHotFile           = false                        
+   MapWriteInterval     = 60 
+   WriteCOM             = true                         
+   COMWriteInterval     = 60             
+[Domain]
+   Grid                 = bf4_500.grd  
+   BedLevel             = bf4_500_digbygut.dep                    
+   DirSpace             = circle                       
+   NDir                 = 36                           
+   StartDir             = 0              
+   EndDir               = 0             
+   FreqMin              = 0.05              
+   FreqMax              = 1              
+   NFreq                = 24                           
+   Output               = true                         
+[Boundary]
+   Name                 = West                        
+   Definition           = orientation                  
+   Orientation          = west                        
+   SpectrumSpec         = parametric                   
+   SpShapeType          = jonswap                      
+   PeriodType           = peak                         
+   DirSpreadType        = power                        
+   PeakEnhanceFac       = 3.3            
+   WaveHeight           = 1             
+   Period               = 5              
+   Direction            = 225             
+   DirSpreading         = 4      
